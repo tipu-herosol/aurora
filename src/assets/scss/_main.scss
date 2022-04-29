@@ -1,0 +1,2076 @@
+/*
+|----------------------------------------------------------------------
+|       Body
+|----------------------------------------------------------------------
+*/
+
+#root {
+	padding-top: 8rem;
+	overflow: initial;
+}
+
+.site_btn {
+	font-weight: 300;
+	text-transform: uppercase;
+	border-radius: 0;
+	&.dark {
+		background: $black;
+		color: $light;
+		&:hover {
+			background: $color;
+			color: $light;
+		}
+	}
+	&.shade {
+		background: $color2;
+		color: $light;
+		&:hover {
+			background: $black;
+			color: $light;
+		}
+	}
+}
+
+.fancy {
+	font-family: $font2;
+	font-weight: 300;
+}
+
+.input {
+	border-radius: 0;
+}
+
+.vid_blk {
+	border-radius: 0;
+}
+
+/*
+|----------------------------------------------------------------------
+|       Header
+|----------------------------------------------------------------------
+*/
+
+header {
+	@include pos($pos: fixed, $b: initial, $z: 30);
+	height: 8rem;
+	background: $black2;
+	@include trans;
+	.toggle {
+		@include flex;
+		// @include ipad {
+		// }
+	}
+	#srch_btn {
+		@include pos($l: null, $r: 1.5rem);
+		width: 2rem;
+		min-width: 2rem;
+		height: 2rem;
+		background: transparent;
+		padding: 0;
+		margin: auto;
+		border: 0;
+	}
+}
+
+.logo {
+	position: relative;
+	@include flex(center);
+	width: 100%;
+	max-width: 8rem;
+	height: 6rem;
+	> a {
+		display: block;
+		width: auto;
+		max-width: 100%;
+		height: 100%;
+		> img {
+			height: 100%;
+			@include object(contain, left center);
+			@include trans;
+			// header & {
+			// 	-webkit-filter: brightness(0) invert(1);
+			// 	filter: brightness(0) invert(1);
+			// }
+			// header.fix & {
+			// 	-webkit-filter: none;
+			// 	filter: none;
+			// }
+		}
+	}
+	header & {
+		@include pos($z: 5);
+		float: none;
+		max-width: 12rem;
+		height: 12rem;
+		background: $black2;
+		// padding: 1.5rem;
+		margin: 0 auto -3rem;
+		border-radius: 75%;
+		overflow: hidden;
+		@include trans;
+		@include ipad {
+			@include pos;
+			float: none;
+			margin: auto;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+		}
+		> a {
+			width: 100%;
+			> img {
+				mix-blend-mode: screen;
+				-o-object-position: center;
+				object-position: center;
+			}
+		}
+	}
+	header.fixed & {
+		height: 8rem;
+	}
+	footer & {
+		max-width: 14rem;
+		height: auto;
+	}
+}
+
+.top_search {
+	@include pos($l: null, $r: 5rem);
+	@include flex(center);
+	width: 100%;
+	max-width: 30rem;
+	background: $black;
+	margin: auto;
+	padding: 0 2rem;
+	> .input {
+		height: 4.2rem;
+		padding-left: 4rem;
+		border: 0;
+		border-radius: 5rem;
+	}
+	> button {
+		@include pos($l: 3.5rem, $r: null);
+		width: 1.6rem;
+		height: 1.6rem;
+		background: transparent;
+		padding: 0;
+		margin: auto;
+		border: 0;
+		-webkit-filter: brightness(0) invert(0);
+		filter: brightness(0) invert(0);
+		@include ipad {
+			margin-left: 1.5rem;
+		}
+	}
+}
+
+#sidebar {
+	@include pos($pos: fixed, $t: 8rem, $l: -30rem, $r: null);
+	width: 30rem;
+	background: $black2;
+	padding: 3rem;
+	@include trans;
+	overflow: auto;
+	&.active {
+		left: 0;
+	}
+	> ul {
+		@include list;
+		> li {
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 2rem;
+			}
+			&.sm {
+				display: none;
+				@include ipad_sm {
+					display: block;
+				}
+			}
+			> a {
+				color: $light;
+				font-size: 2.2rem;
+				&:hover,
+				&.active {
+					color: $color;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Navigation
+|----------------------------------------------------------------------
+*/
+
+nav {
+	position: relative;
+	@include flex(center, flex-end);
+	height: 8rem;
+	padding: {
+		left: 24rem;
+		right: 24rem;
+	}
+	@include ipad {
+		padding: {
+			left: 20rem;
+			right: 20rem;
+		}
+	}
+	@include ipad_sm {
+		margin: 0;
+	}
+	.social_links {
+		@include pos($l: null);
+		margin: auto;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		@include mobile_md {
+			display: none;
+		}
+	}
+}
+
+#nav {
+	@include flex($justify: space-between);
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	@include trans;
+	@include ipad_sm {
+		@include pos($pos: fixed, $t: 8rem);
+		@include flex($flow: wrap);
+		-ms-flex-line-pack: justify;
+		align-content: space-between;
+		width: auto;
+		background: $light;
+		margin: 0;
+		padding: 2rem 5rem;
+		border-top: 0.2rem solid rgba($black, 0.1);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		overflow: auto;
+		z-index: 3;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
+	> ul {
+		@include flex(center, center);
+		@include list;
+		margin: 0 -2rem;
+		@include ipad_sm {
+			width: 100%;
+			-ms-flex-flow: wrap;
+			flex-flow: wrap;
+			margin: 0;
+		}
+		> li {
+			position: relative;
+			padding: 0 2rem;
+			@include ipad_sm {
+				width: 100%;
+				padding: 0;
+				text-align: center;
+				.site_btn {
+					margin-top: 0.5rem;
+				}
+			}
+			> a:not(.site_btn) {
+				@include flex(center, center);
+				display: -webkit-inline-box;
+				display: -ms-inline-flexbox;
+				display: inline-flex;
+				height: 4rem;
+				color: $light;
+				text-align: center;
+				@include ipad_sm {
+					color: $black;
+				}
+				&:hover,
+				&.active {
+					color: $color !important;
+				}
+			}
+			> .sub {
+				position: absolute;
+				top: 100%;
+				left: 2rem;
+				width: 18rem;
+				background: $light;
+				text-align: left;
+				padding: 1rem 0;
+				margin-top: 1rem;
+				visibility: hidden;
+				opacity: 0;
+				// border-radius: 0.6rem;
+				-webkit-transition: none;
+				transition: none;
+				-webkit-box-shadow: $shadow;
+				box-shadow: $shadow;
+				pointer-events: none;
+				@include trans;
+				overflow: hidden;
+				@include ipad_sm {
+					position: static;
+					display: none;
+					width: 100%;
+					max-height: none;
+					background: transparent;
+					visibility: visible;
+					opacity: 1;
+					text-align: center;
+					padding: 0;
+					margin: 0 auto !important;
+					border: 0;
+					border-radius: 0;
+					-webkit-transition: none;
+					transition: none;
+					-webkit-box-shadow: none;
+					box-shadow: none;
+				}
+				> li {
+					display: block;
+					> a {
+						display: block;
+						color: $black;
+						padding: 1rem 2rem;
+						@include ipad_sm {
+							@include flex($type: inline-flex);
+						}
+						&:hover {
+							background: rgba($color, 0.05);
+							color: $color;
+						}
+					}
+				}
+			}
+			&:hover > .sub {
+				visibility: visible;
+				opacity: 1;
+				margin-top: 0;
+				pointer-events: auto;
+			}
+			&.drop > a {
+				position: relative;
+				&:after {
+					content: "";
+					@include chev;
+					width: 1rem;
+					height: 1rem;
+					color: inherit;
+					margin-left: 0.6rem;
+					// -webkit-clip-path: polygon(0 40%, 0 60%, 40% 60%, 40% 100%, 60% 100%, 60% 60%, 100% 60%, 100% 40%, 60% 40%, 60% 0, 40% 0, 40% 40%);
+					// clip-path: polygon(0 40%, 0 60%, 40% 60%, 40% 100%, 60% 100%, 60% 60%, 100% 60%, 100% 40%, 60% 40%, 60% 0, 40% 0, 40% 40%);
+				}
+			}
+		}
+	}
+	// > #lst {
+	// 	-webkit-box-flex: 1;
+	// 	-ms-flex: 1;
+	// 	flex: 1;
+	// }
+	> #cta {
+		// margin-left: 2rem;
+		@include ipad_sm {
+			margin: auto 0 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Footer
+|----------------------------------------------------------------------
+*/
+
+footer {
+	position: relative;
+	background: $black2;
+	color: $light;
+	// padding: 6rem 0 3rem;
+	padding: 2rem 0 1.5rem;
+	margin-top: auto;
+	overflow: hidden;
+	.contain {
+		z-index: 3;
+	}
+	a {
+		color: rgba($light, 0.7);
+		&:hover {
+			color: $color;
+		}
+	}
+	.main_row {
+		> .col {
+			-webkit-box-flex: 1;
+			-ms-flex: auto;
+			flex: auto;
+			&:nth-last-child(1) {
+				width: 40%;
+			}
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	h5 {
+		position: relative;
+		margin-bottom: 3rem;
+		@include ipad_sm {
+			margin-bottom: 1.5rem;
+		}
+		&.drop {
+			@include ipad_sm {
+				cursor: pointer;
+				margin-bottom: 0;
+			}
+			&:after {
+				position: absolute;
+				top: 0.6rem;
+				right: 0;
+				@include chev;
+				width: 1rem;
+				height: 1rem;
+				@include ipad_sm {
+					content: "";
+				}
+			}
+			@include ipad_sm {
+				& + .list {
+					display: none;
+					margin-top: 1.5rem;
+				}
+			}
+		}
+	}
+	.list {
+		@include list;
+		@include flex($justify: center, $flow: wrap);
+		margin: 0 -1rem 0.5rem;
+		> li {
+			display: block;
+			padding: 0 1rem;
+		}
+	}
+	.copyright {
+		margin-top: 0;
+		@include ipad_sm {
+			text-align: center;
+		}
+		> a {
+			color: $color;
+		}
+	}
+	.subscribe {
+		@include flex(center, center, column);
+		// padding-bottom: 3rem;
+		margin-bottom: 3rem;
+		// border-bottom: 0.1rem solid rgba($light, 0.2);
+		@include ipad_sm {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-flow: column;
+			flex-flow: column;
+		}
+		> span {
+			max-width: 32rem;
+			font-size: 1.8rem;
+			line-height: 1.3;
+			margin-bottom: 1.5rem;
+			@include ipad_sm {
+				margin-bottom: 1.5rem;
+				text-align: center;
+			}
+		}
+		form {
+			position: relative;
+			width: 100%;
+			max-width: 40rem;
+			.input {
+				height: 6rem;
+				color: $black;
+				padding-right: 6rem;
+			}
+			button {
+				@include pos;
+				left: initial;
+				width: 3rem;
+				height: 3rem;
+				background: $color;
+				padding: 0.6rem;
+				margin: auto;
+				margin-right: 1.2rem;
+				border: 0;
+				border-radius: 0.6rem;
+				&:hover {
+					background: $black;
+				}
+				> img {
+					-webkit-filter: brightness(0) invert(1);
+					filter: brightness(0) invert(1);
+				}
+			}
+		}
+	}
+	.social_links {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+		@include ipad_sm {
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+		}
+	}
+}
+
+.social_links {
+	@include flex($flow: wrap);
+	@include list;
+	gap: 0.5rem;
+	li {
+		a {
+			@include flex(center, center);
+			display: -webkit-box !important;
+			display: -ms-flexbox !important;
+			display: flex !important;
+			width: 3.6rem;
+			min-width: 3.6rem;
+			height: 3.6rem;
+			background: $color2;
+			padding: 1rem;
+			border-radius: 75%;
+			&:hover {
+				background: $dark_gray;
+			}
+			img {
+				-webkit-filter: brightness(0) invert(1);
+				filter: brightness(0) invert(1);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Banner
+|----------------------------------------------------------------------
+*/
+
+#banner {
+	@include bg(cover);
+	// margin-top: -8rem;
+	padding: 0;
+	&:before {
+		@include overlay($black, 0.3);
+	}
+	.contain {
+		z-index: 3;
+	}
+	.flex_blk {
+		@include flex(center);
+		min-height: calc(100vh - 8rem);
+		padding: 8rem 0;
+		@include ipad_sm {
+			// min-height: initial;
+		}
+	}
+	.content {
+		max-width: 70rem;
+		color: $light;
+		margin: 0 auto;
+		h1 {
+			font-size: 5.8rem;
+			margin-bottom: 3.5rem;
+			line-height: 1.1;
+			text-shadow: 0.5rem 0.5rem 0.5rem rgba($black, 0.3);
+			@include ipad_sm {
+				font-size: 4.8rem;
+			}
+			@include mobile_md {
+				font-size: 4rem;
+			}
+		}
+		p {
+			color: $light_gray;
+			font-size: 1.8rem;
+			text-shadow: 0.5rem 0.5rem 0.5rem rgba($black, 0.2);
+			@include mobile_md {
+				font-size: 1.6rem;
+			}
+		}
+	}
+	> video {
+		@include pos;
+		@include object(cover);
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Since
+|----------------------------------------------------------------------
+*/
+
+#since {
+	.main_row {
+		> .col {
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			@include ipad_sm {
+				-webkit-box-flex: 0;
+				-ms-flex: none;
+				flex: none;
+				width: 50%;
+			}
+			&.col1 {
+				width: 40%;
+				@include ipad_sm {
+					width: 100%;
+				}
+			}
+		}
+	}
+	figure {
+		@include img($pb: 100%);
+		width: 100%;
+		margin: 0;
+		> img {
+			@include pos;
+			@include object;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Strip
+|----------------------------------------------------------------------
+*/
+
+#strip {
+	.main_row {
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		> .col1 {
+			width: 40%;
+		}
+		> .col2 {
+			width: 60%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.title {
+		text-align: right;
+		@include ipad_sm {
+			text-align: center;
+		}
+	}
+	figure {
+		margin: 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Area
+|----------------------------------------------------------------------
+*/
+
+#area {
+	min-height: calc(100vh - 8rem);
+	@include bg(cover);
+	.main_row {
+		grid-template-columns: 1fr 1fr 1fr;
+		@include ipad_sm {
+			grid-template-columns: 1fr 1fr;
+		}
+		@include mobile_md {
+			grid-template-columns: 1fr;
+		}
+		> .col {
+			width: 100%;
+			&:nth-child(1) {
+				grid-row-start: span 2;
+				@include mobile_md {
+					grid-row-start: span 1;
+				}
+			}
+		}
+	}
+	.content {
+		max-width: 50rem;
+		margin: 0 auto 3rem;
+	}
+}
+
+.area_blk {
+	@include img($pb: 60%);
+	&:hover {
+		> img {
+			-webkit-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+		> .txt {
+			opacity: 1;
+			-webkit-transform: translateY(0);
+			-ms-transform: translateY(0);
+			transform: translateY(0);
+		}
+	}
+	> img {
+		@include object($fill: true);
+		@include trans;
+		z-index: 1;
+	}
+	> a {
+		@include pos($z: 3);
+	}
+	> .txt {
+		@include pos($t: null, $z: 2);
+		background: -webkit-gradient(linear, left bottom, left top, from($black), to(transparent));
+		background: linear-gradient(0deg, $black, transparent);
+		padding: 6rem 2rem 2rem;
+		@include trans;
+		> * {
+			max-width: 22rem;
+		}
+		h4 {
+			color: $color;
+		}
+		p {
+			color: $light;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Itinerary
+|----------------------------------------------------------------------
+*/
+
+#itinerary {
+	.content {
+		max-width: 50rem;
+		margin: 0 auto 3rem;
+	}
+	.main_row {
+		@include ipad_sm {
+			@include slider;
+		}
+		> .col {
+			width: 33.3334%;
+		}
+	}
+	@include ipad_sm {
+		.itinerary_blk {
+			width: 30rem;
+			min-width: 30rem;
+		}
+	}
+}
+
+.itinerary_blk {
+	@include img($pb: 120%);
+	&:hover {
+		> img {
+			-webkit-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+		> .txt {
+			opacity: 1;
+			-webkit-transform: translateY(0);
+			-ms-transform: translateY(0);
+			transform: translateY(0);
+		}
+	}
+	> img {
+		@include object($fill: true);
+		@include trans;
+		z-index: 1;
+	}
+	> a {
+		@include pos($z: 3);
+	}
+	> .badge {
+		@include pos($t: 1.5rem, $l: 1.5rem, $r: null, $b: null, $z: 2);
+		background: $color;
+	}
+	> .txt {
+		@include pos($t: null, $z: 2);
+		background: -webkit-gradient(linear, left bottom, left top, from($black), to(transparent));
+		background: linear-gradient(0deg, $black, transparent);
+		color: $light;
+		padding: 6rem 2rem 2rem;
+		@include trans;
+		> * {
+			max-width: 22rem;
+		}
+		.btm_blk {
+			@include flex;
+			.duration {
+				margin-right: 1rem;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Stuff
+|----------------------------------------------------------------------
+*/
+
+#stuff {
+	.outer {
+		@include flex;
+		.img {
+			width: 36%;
+			// margin-top: 4rem;
+			figure {
+				@include img;
+				height: 100%;
+				margin: 0;
+				> img {
+					@include object($fill: true);
+				}
+			}
+		}
+		.content {
+			position: relative;
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			z-index: 1;
+			.txt {
+				padding: 6rem;
+				&.dark {
+					background: $black2;
+					color: $light;
+					margin-left: 6rem;
+					// padding-left: 6rem * 2;
+				}
+				&.light {
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Guide
+|----------------------------------------------------------------------
+*/
+
+#guide {
+	min-height: calc(100vh - 8rem);
+	@include bg(cover);
+	.main_row {
+		> .col1 {
+			width: 68%;
+		}
+		> .col2 {
+			width: 32%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	figure {
+		@include img;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Works
+|----------------------------------------------------------------------
+*/
+
+#works {
+	min-height: calc(100vh - 8rem);
+	.main_row {
+		> .col {
+			width: 25%;
+			@include ipad_sm {
+				width: 50%;
+			}
+			@include mobile_md {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		max-width: 50rem;
+		margin: 0 auto 4rem;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Serve
+|----------------------------------------------------------------------
+*/
+
+#serve {
+	// background: rgba($black, 0.06);
+	background: $color;
+	.flex_row {
+		> .col {
+			width: 50%;
+		}
+	}
+	.content {
+		max-width: 60rem;
+		color: $light;
+		margin: 0 auto 4rem;
+	}
+}
+
+.serve_blk {
+	@include block($p: 0);
+	overflow: hidden;
+	> .img {
+		@include img($pb: 70%);
+		border-radius: 0;
+		> a {
+			@include pos;
+			&:hover {
+				-webkit-transform: scale(1.1);
+				-ms-transform: scale(1.1);
+				transform: scale(1.1);
+			}
+			> img {
+				@include object(cover);
+			}
+		}
+	}
+	> .txt {
+		padding: 2.5rem;
+		h3 {
+			// text-transform: uppercase;
+			> a {
+				color: $color;
+				&:hover {
+					color: $black;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Intro
+|----------------------------------------------------------------------
+*/
+
+#intro {
+	.flex_row {
+		> .col1 {
+			width: 38%;
+		}
+		> .col2 {
+			width: 62%;
+		}
+	}
+	.img {
+		@include img;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Values
+|----------------------------------------------------------------------
+*/
+
+#values {
+	background: rgba($black, 0.06);
+	.flex_row {
+		width: calc(100% + 3rem);
+		margin: -1.5rem;
+		> .col {
+			width: 33.3334%;
+			padding: 1.5rem;
+			&:hover {
+				.choose_blk {
+					-webkit-transform: rotateY(180deg);
+					transform: rotateY(180deg);
+				}
+			}
+		}
+	}
+	.content {
+		max-width: 70rem;
+		margin: 0 auto 4rem;
+	}
+	.choose_blk {
+		position: relative;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		// perspective: 2rem;
+		-webkit-transition: -webkit-transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+		transition: -webkit-transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+		transition: transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+		transition: transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1), -webkit-transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+		.front {
+			@include pos;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			border-radius: 1rem;
+			-webkit-transform: rotateY(0);
+			transform: rotateY(0);
+			overflow: hidden;
+			> img {
+				@include pos;
+				@include object(cover);
+			}
+		}
+		.back {
+			-webkit-transform: rotateY(180deg) translateZ(1rem);
+			transform: rotateY(180deg) translateZ(1rem);
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Choose
+|----------------------------------------------------------------------
+*/
+
+#choose {
+	background: rgba($black, 0.06);
+	.flex_row {
+		width: calc(100% + 3rem);
+		margin: -1.5rem;
+		> .col {
+			width: 25%;
+			padding: 1.5rem;
+		}
+	}
+	.content {
+		max-width: 70rem;
+		margin: 0 auto 4rem;
+	}
+}
+
+.choose_blk {
+	@include block;
+	-webkit-box-shadow: 0 2rem 9rem 0 rgba($black, 0.04);
+	box-shadow: 0 2rem 9rem 0 rgba($black, 0.04);
+	.icon {
+		width: 8rem;
+		min-width: 8rem;
+		height: 8rem;
+		background: rgba($color, 0.1);
+		margin: 0 auto 2rem;
+		padding: 1rem;
+	}
+	.txt {
+		h4 {
+			> strong {
+				display: block;
+				color: $color;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Assets
+|----------------------------------------------------------------------
+*/
+
+#assets {
+	@include bg(cover);
+	padding: 0;
+	&:before {
+		@include overlay($black2, 0.4);
+	}
+	.contain {
+		z-index: 3;
+	}
+	> video {
+		@include pos;
+		@include object(cover);
+		z-index: 0;
+	}
+	.flex_blk {
+		@include flex(center);
+		min-height: calc(100vh - 8rem);
+		padding: 8rem 0;
+	}
+	.content {
+		max-width: 82rem;
+		color: $light;
+		margin: 0 auto;
+		h1 {
+			font-size: 5.8rem;
+			@include mobile {
+				font-size: 5rem;
+			}
+			@include mobile_md {
+				font-size: 4.2rem;
+			}
+			@include mobile_sm {
+				font-size: 3.6rem;
+			}
+		}
+		p {
+			color: inherit;
+		}
+	}
+	.play_btn {
+		width: 8rem;
+		height: 8rem;
+		background: rgba($dark, 0.1);
+		margin: auto;
+		padding: 0;
+		border: 0;
+		border-radius: 75%;
+		z-index: 2;
+	}
+	> iframe {
+		@include pos;
+		display: block;
+		width: 100%;
+		height: 100%;
+		-o-object-fit: fill;
+		object-fit: fill;
+		z-index: -1;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Posts
+|----------------------------------------------------------------------
+*/
+
+#posts {
+	min-height: calc(100vh - 8rem);
+	.main_row {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+		-ms-flex-flow: row-reverse;
+		flex-flow: row-reverse;
+		@include ipad_sm {
+			-ms-flex-flow: wrap;
+			flex-flow: wrap;
+		}
+		> .col1 {
+			width: 40%;
+		}
+		> .col2 {
+			width: 60%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.sub_row {
+		@include mobile_md {
+			@include slider;
+		}
+		> .col {
+			width: 50%;
+		}
+	}
+	.title {
+		text-align: right;
+		@include ipad_sm {
+			text-align: center;
+			.btn_blk {
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+			}
+		}
+	}
+	@include mobile_md {
+		.post_blk {
+			width: 30rem;
+			min-width: 30rem;
+		}
+	}
+}
+
+.post_blk {
+	@include img($pb: 140%);
+	&:hover {
+		> img {
+			-webkit-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+		> .txt {
+			opacity: 1;
+			-webkit-transform: translateY(0);
+			-ms-transform: translateY(0);
+			transform: translateY(0);
+		}
+	}
+	> img {
+		@include object($fill: true);
+		@include trans;
+		z-index: 1;
+	}
+	> a {
+		@include pos($z: 3);
+	}
+	> .txt {
+		@include pos($t: null, $z: 2);
+		background: -webkit-gradient(linear, left bottom, left top, from($black), to(transparent));
+		background: linear-gradient(0deg, $black, transparent);
+		color: $light;
+		padding: 6rem 2rem 2rem;
+		@include trans;
+		> * {
+			max-width: 22rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       FAQ's
+|----------------------------------------------------------------------
+*/
+
+#faq {
+	.contain {
+		max-width: 76rem;
+		z-index: 3;
+	}
+}
+
+.faq_lst {
+	&:not(:nth-last-child(1)) {
+		margin-bottom: 4rem;
+	}
+	> .faq_blk {
+		@include block($p: 2rem);
+		margin-bottom: 2rem;
+		@include trans;
+		// &:nth-child(1) {
+		// 	.txt {
+		// 		display: block;
+		// 	}
+		// }
+		&:nth-last-child(1) {
+			margin-bottom: 0;
+		}
+		&.active {
+			h5 {
+				color: $color;
+				&:after {
+					background: $color;
+					-webkit-clip-path: polygon(0 40%, 0 60%, 100% 60%, 100% 40%);
+					clip-path: polygon(0 40%, 0 60%, 100% 60%, 100% 40%);
+				}
+			}
+		}
+		h5 {
+			position: relative;
+			padding: 0 2rem 0 0;
+			margin: 0;
+			cursor: pointer;
+			@include trans;
+			z-index: 2;
+			&:after {
+				content: "";
+				@include pos(0.2rem, $l: null, $b: null);
+				width: 1.2rem;
+				height: 1.2rem;
+				background: $black;
+				-webkit-clip-path: polygon(0 40%, 0 60%, 40% 60%, 40% 100%, 60% 100%, 60% 60%, 100% 60%, 100% 40%, 60% 40%, 60% 0, 40% 0, 40% 40%);
+				clip-path: polygon(0 40%, 0 60%, 40% 60%, 40% 100%, 60% 100%, 60% 60%, 100% 60%, 100% 40%, 60% 40%, 60% 0, 40% 0, 40% 40%);
+				@include trans;
+			}
+			&:hover {
+				color: $color;
+			}
+		}
+		.txt {
+			// display: none;
+			padding: 1rem 0 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Contact Us
+|----------------------------------------------------------------------
+*/
+
+#contact {
+	.content {
+		max-width: 50rem;
+		margin: 0 auto 4rem;
+	}
+	form {
+		max-width: 64rem;
+		@include block;
+		background: $light;
+		margin: 0 auto;
+		border: 0.1rem solid $light_gray;
+	}
+	.info_row {
+		@include ipad_sm {
+			width: calc(100% + 3rem);
+			margin: -1.5rem;
+			@include slider;
+		}
+		> .col {
+			width: 33.3334%;
+			@include ipad_sm {
+				padding: 1.5rem;
+			}
+		}
+		.inner {
+			@include block;
+			background: $light;
+			border: 0.1rem solid $light_gray;
+			@include ipad_sm {
+				min-width: 26rem;
+			}
+			.icon {
+				width: 4rem;
+				min-width: 4rem;
+				height: 4rem;
+				margin: 0 auto 1.5rem;
+			}
+		}
+	}
+	@at-root {
+		#map_blk {
+			@include img;
+			height: 40rem;
+			iframe {
+				@include pos;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Team
+|----------------------------------------------------------------------
+*/
+
+#team {
+	.content {
+		max-width: 76rem;
+		margin: 0 auto 3rem;
+	}
+	.main_row {
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		@include ipad_sm {
+			@include slider;
+		}
+		> .col {
+			width: 25%;
+		}
+	}
+	.team_blk {
+		max-width: 28rem;
+		margin: 0 auto;
+		@include ipad_sm {
+			width: 24rem;
+			min-width: 24rem;
+		}
+	}
+}
+
+.team_blk {
+	text-align: center;
+	// @include img;
+	figure {
+		@include img($pb: 100%);
+		margin: 0;
+		> img {
+			@include pos;
+			@include object(cover);
+		}
+	}
+	.txt {
+		padding: 2rem 0 0;
+		margin: 0 0 auto;
+		h5 {
+			margin-bottom: 0.5rem;
+		}
+		.social_links {
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       About us
+|----------------------------------------------------------------------
+*/
+
+#paid {
+	background: $color;
+	.content {
+		max-width: 70rem;
+		color: $light;
+		margin: 0 auto;
+		p {
+			color: inherit;
+		}
+	}
+}
+
+#affiliate {
+	// padding-top: 0;
+	.flex_row {
+		@include ipad_sm {
+			@include slider;
+		}
+		> .col {
+			width: 33.3334%;
+		}
+	}
+	.content {
+		max-width: 52rem;
+		margin: 0 auto 3rem;
+	}
+	.aff_blk {
+		@include block;
+		@include ipad_sm {
+			width: 28rem;
+			min-width: 28rem;
+		}
+		.icon {
+			width: 8rem;
+			min-width: 8rem;
+			height: 8rem;
+			background: rgba($color, 0.1);
+			margin: 0 0 2rem;
+			padding: 1rem;
+			border-radius: 1rem;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Blog
+|----------------------------------------------------------------------
+*/
+
+#blog {
+	.main_row {
+		> .col1 {
+			width: 75%;
+		}
+		> .col2 {
+			width: 25%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	.sub_row {
+		> .col {
+			width: 33.3334%;
+			@include ipad_sm {
+				width: 50%;
+			}
+			@include mobile {
+				width: 100%;
+			}
+		}
+	}
+	.post_blk {
+		padding-bottom: 120%;
+	}
+	.article_wrap {
+		.article {
+			@include flex($flow: row-reverse);
+			// @include block;
+			// padding: 2rem;
+			&:not(:nth-last-child(1)):not(:nth-child(6)) {
+				margin-bottom: 3rem;
+			}
+			&:nth-child(n + 7) {
+				display: none;
+			}
+			.ico {
+				width: 6rem;
+				min-width: 6rem;
+				height: 6rem;
+				margin-left: 2rem;
+				// border-radius: 1rem;
+				overflow: hidden;
+			}
+			.txt {
+				position: relative;
+				width: 100%;
+				h5 {
+					display: -webkit-box;
+					line-clamp: 2;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					margin-bottom: 0;
+					overflow: hidden;
+				}
+			}
+			.date {
+				color: $dark_gray;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Brands
+|----------------------------------------------------------------------
+*/
+
+#brands {
+	.content {
+		max-width: 64rem;
+		margin: 0 auto 4rem;
+	}
+	.list {
+		@include list;
+		@include flex($justify: center, $flow: wrap);
+		margin: -3rem -1.5rem;
+		> li {
+			width: 25%;
+			padding: 3rem 1.5rem;
+			@include ipad_sm {
+				width: 33.3334%;
+			}
+			@include mobile_md {
+				width: 50%;
+			}
+			.icon {
+				display: block;
+				width: 16rem;
+				height: 6rem;
+				background: $light_white;
+				margin: auto;
+				mix-blend-mode: darken;
+				@include trans;
+				&:hover {
+					-webkit-filter: brightness(1) invert(0) grayscale(1);
+					filter: brightness(1) invert(0) grayscale(1);
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Terms
+|----------------------------------------------------------------------
+*/
+
+#terms {
+	.blk {
+		background: $light_gray;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Destinations
+|----------------------------------------------------------------------
+*/
+
+#destination {
+	// padding-top: 0.2rem;
+	.main_row {
+		> .col {
+			width: 33.3334%;
+			@include ipad_sm {
+				width: 50%;
+			}
+			@include mobile_md {
+				width: 100%;
+			}
+		}
+	}
+	.content {
+		max-width: 50rem;
+		margin: 0 auto 3rem;
+	}
+	#map_blk {
+		position: relative;
+		height: calc(100vh - 8rem);
+		margin-top: -8rem;
+		margin-bottom: 6rem;
+		> iframe {
+			-webkit-filter: invert(1) grayscale(1);
+			filter: invert(1) grayscale(1);
+		}
+		.run_btn {
+			@include pos($t: null, $b: 2rem, $z: 4);
+			@include flex(center, center);
+			width: 4rem;
+			min-width: 4rem;
+			height: 4rem;
+			background: $light;
+			color: $color;
+			margin: auto;
+			border-radius: 75%;
+			&:before {
+				content: "";
+				@include pos;
+				@include chev;
+				@include flex(center, center);
+				// display: block;
+				width: 1.6rem;
+				height: 1.6rem;
+				color: inherit;
+				margin: auto;
+			}
+		}
+	}
+	.area_blk {
+		padding-bottom: 140%;
+	}
+	& + #itinerary {
+		padding-top: 0;
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Overview
+|----------------------------------------------------------------------
+*/
+
+#overview {
+	.main_row {
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	#map_blk {
+		height: auto;
+		-webkit-filter: invert(1) grayscale(1);
+		filter: invert(1) grayscale(1);
+		@include ipad_sm {
+			height: 40rem;
+		}
+	}
+	.fig {
+		figure {
+			margin: 0;
+		}
+	}
+	.list_item {
+		@include list;
+		> li {
+			@include flex(flex-start);
+			counter-increment: custom;
+			&:not(:nth-last-child(1)) {
+				margin-bottom: 1.5rem;
+			}
+			&:before {
+				content: counter(custom) " ";
+				@include flex($type: inline-flex);
+				font-weight: 500;
+				margin-right: 2rem;
+				opacity: 0.2;
+				white-space: nowrap;
+			}
+		}
+	}
+	#country {
+		padding-top: 8rem;
+		figure {
+			margin: 0;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       What
+|----------------------------------------------------------------------
+*/
+
+#what {
+	@include bg(cover);
+	.main_row {
+		@include ipad_sm {
+			@include slider;
+		}
+		> .col {
+			width: 33.3334%;
+		}
+	}
+	.what_blk {
+		@include ipad_sm {
+			width: 30rem;
+			min-width: 30rem;
+		}
+		figure {
+			@include img($pb: 70%);
+			margin: 0 0 1.5rem;
+			> img {
+				@include object($fill: true);
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Experience
+|----------------------------------------------------------------------
+*/
+
+#experience {
+	.main_row {
+		@include ipad_sm {
+			@include slider;
+		}
+		> .col {
+			width: 50%;
+		}
+	}
+	.inner {
+		@include ipad_sm {
+			width: 30rem;
+			min-width: 30rem;
+		}
+		figure {
+			@include img($pb: 70%);
+			margin: 0 0 1.5rem;
+			> a {
+				@include pos;
+				> img {
+					@include object;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Enquire Block
+|----------------------------------------------------------------------
+*/
+
+#enquire_blk {
+	padding: 0;
+	.inside {
+		background: $black2;
+		color: $light;
+		padding: 8rem;
+		@include mobile_md {
+			padding: 8rem 4rem;
+			margin: 0 -1.5rem;
+		}
+		.txt {
+			max-width: 50rem;
+			margin: auto;
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Inspire
+|----------------------------------------------------------------------
+*/
+
+#inspire {
+	@include bg(cover);
+	.main_row {
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.review {
+		@include block;
+		.ico {
+			width: 6rem;
+			min-width: 6rem;
+			height: 6rem;
+			border-radius: 0.6rem;
+			overflow: hidden;
+		}
+		.rating {
+			@include flex($type: inline-flex);
+			gap: 0.2rem;
+			padding: 0.2rem 0.6rem;
+			background: rgba($color, 0.2);
+			border-radius: 0.4rem;
+			.star {
+				display: inline-block;
+				width: 1.6rem;
+				min-width: 1.6rem;
+				height: 1.6rem;
+				@include star;
+				color: #ffd100;
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Partners
+|----------------------------------------------------------------------
+*/
+
+#partners {
+	.content {
+		max-width: 48rem;
+		margin: 0 auto 3rem;
+	}
+	.list {
+		@include list;
+		@include flex($justify: center, $flow: wrap);
+		margin: -2rem -1.5rem;
+		> li {
+			width: 25%;
+			padding: 2rem 1.5rem;
+			@include ipad_sm {
+				width: 33.3334%;
+			}
+			@include mobile_md {
+				width: 50%;
+			}
+			.ico {
+				display: block;
+				width: 16rem;
+				height: 8rem;
+				background: $light;
+				margin: auto;
+				mix-blend-mode: darken;
+				@include trans;
+				@include mobile_sm {
+					width: 14rem;
+					height: 6rem;
+				}
+				&:hover {
+					-webkit-filter: brightness(1) invert(0) grayscale(1);
+					filter: brightness(1) invert(0) grayscale(1);
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Tabs
+|----------------------------------------------------------------------
+*/
+
+#tabs {
+	@include pos($pos: sticky, $t: 8rem, $b: null, $z: 10);
+	padding: 0;
+	// margin-bottom: 8rem;
+	ul {
+		@include list;
+		@include flex($justify: space-between);
+		background: $black;
+		@include ipad_sm {
+			@include slider;
+		}
+		> li {
+			> a {
+				@include flex(center, center);
+				height: 6rem;
+				padding: 0 4rem;
+				color: $light;
+				text-transform: uppercase;
+				white-space: nowrap;
+				&:hover {
+					color: $color;
+				}
+			}
+		}
+	}
+}
+
+/*
+|----------------------------------------------------------------------
+|       Trip
+|----------------------------------------------------------------------
+*/
+
+#trip {
+	padding-top: 0;
+	.main_row {
+		> .col {
+			width: 50%;
+			@include ipad_sm {
+				width: 100%;
+			}
+		}
+	}
+	.sub_row {
+		> .col {
+			width: 50%;
+			@include mobile_md {
+				width: 100%;
+			}
+		}
+	}
+	.itinerary_blk {
+		h3 {
+			font-size: 2.2rem;
+		}
+	}
+	.trip_col {
+		@include flex($flow: column);
+		> .sub_row {
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+		}
+		.itinerary_blk {
+			padding-bottom: 0;
+			@include ipad_sm {
+				padding-bottom: 100%;
+			}
+		}
+		& + .btn_blk {
+			-webkit-box-flex: 0.6;
+			-ms-flex: 0.6;
+			flex: 0.6;
+		}
+	}
+	.site_btn_blk {
+		-webkit-box-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		height: auto;
+		min-height: 14rem;
+		@include bg(cover);
+		&:before {
+			@include overlay($black, 0.7);
+		}
+		span {
+			position: relative;
+			font-weight: 400;
+			z-index: 3;
+		}
+	}
+}
+
+#owl-trip {
+	figure {
+		@include img;
+		margin: 0;
+		// padding-bottom: 120%;
+		padding-bottom: calc(100vh - 8rem);
+		> img {
+			@include object($fill: true);
+		}
+	}
+	.owl-dots {
+		position: absolute;
+	}
+	@include ipad_sm {
+		.owl-nav {
+			.owl-prev {
+				left: 0.5em;
+			}
+			.owl-next {
+				right: 0.5em;
+			}
+		}
+	}
+}
+
+#itinerary_page {
+	.master_row {
+		> .col1 {
+			width: 30%;
+		}
+		> .col2 {
+			width: 70%;
+		}
+		@include ipad_sm {
+			> .col {
+				width: 100%;
+			}
+		}
+	}
+	#map_blk {
+		height: calc(100vh - 14rem);
+	}
+	.itinerary_row {
+		> .col {
+			width: 50%;
+			@include mobile_md {
+				width: 100%;
+			}
+		}
+	}
+	.docs_row {
+		> .col {
+			width: 33.3334%;
+			@include mobile_md {
+				width: 50%;
+			}
+		}
+		.inner {
+			.fig {
+				@include img($pb: 60%);
+				> img {
+					@include object($fill: true);
+				}
+			}
+			h6 {
+				margin: 1rem 0 0;
+			}
+		}
+	}
+}
