@@ -25,11 +25,6 @@ function SocialLinks() {
 						<img src="/images/social-youtube.svg" alt="" />
 					</Link>
 				</li>
-				<li>
-					<Link to="?">
-						<img src="/images/social-twitter.svg" alt="" />
-					</Link>
-				</li>
 			</ul>
 		</>
 	);

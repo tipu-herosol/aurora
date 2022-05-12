@@ -165,8 +165,8 @@ header {
 }
 
 #sidebar {
-	@include pos($pos: fixed, $t: 8rem, $l: -30rem, $r: null);
-	width: 30rem;
+	@include pos($pos: fixed, $t: 8rem, $l: -20rem, $r: null);
+	width: 20rem;
 	background: $black2;
 	padding: 3rem;
 	@include trans;
@@ -620,6 +620,7 @@ footer {
 */
 
 #since {
+	min-height: calc(100vh - 8rem);
 	.main_row {
 		> .col {
 			-webkit-box-flex: 1;
@@ -657,6 +658,7 @@ footer {
 */
 
 #strip {
+	min-height: calc(100vh - 8rem);
 	.main_row {
 		-webkit-box-align: center;
 		-ms-flex-align: center;
@@ -909,6 +911,14 @@ footer {
 
 #works {
 	min-height: calc(100vh - 8rem);
+	@include bg(cover);
+	&:before {
+		@include overlay($black, 0.2);
+	}
+	.contain {
+		position: relative;
+		z-index: 3;
+	}
 	.main_row {
 		> .col {
 			width: 25%;
@@ -922,7 +932,35 @@ footer {
 	}
 	.content {
 		max-width: 50rem;
+		color: $light;
 		margin: 0 auto 4rem;
+	}
+	.work_blk {
+		@include block;
+		padding: 0;
+		.fig {
+			position: relative;
+			padding-bottom: 60%;
+			overflow: hidden;
+			> img {
+				@include pos;
+				@include object(cover);
+			}
+		}
+		.txt {
+			padding: 2rem;
+		}
+	}
+	#owl-works {
+		.owl-stage {
+			display: flex;
+		}
+		.owl-item {
+			display: flex;
+			> * {
+				width: 100%;
+			}
+		}
 	}
 }
 
@@ -1458,6 +1496,7 @@ footer {
 
 #affiliate {
 	// padding-top: 0;
+	min-height: calc(100vh - 8rem);
 	.flex_row {
 		@include ipad_sm {
 			@include slider;
@@ -1510,7 +1549,10 @@ footer {
 	}
 	.sub_row {
 		> .col {
-			width: 33.3334%;
+			width: 25%;
+			@include ipad {
+				width: 33.3334%;
+			}
 			@include ipad_sm {
 				width: 50%;
 			}

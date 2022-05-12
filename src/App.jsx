@@ -6,6 +6,9 @@ import Header from "./components/includes/Header";
 import Footer from "./components/includes/Footer";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
+import Services from "./components/pages/Services";
+import ServiceDetail from "./components/pages/ServiceDetail";
+import Rates from "./components/pages/Rates";
 import Contact from "./components/pages/Contact";
 import Faq from "./components/pages/Faq";
 import Blog from "./components/pages/Blog";
@@ -36,7 +39,10 @@ function App() {
 					<Route element={<PageLayout />}>
 						<Route exact path="/" element={<Home />} />
 						<Route exact path="/about" element={<About />} />
+						<Route exact path="/services" element={<Services />} />
+						<Route exact path="/service-detail" element={<ServiceDetail />} />
 						<Route exact path="/contact" element={<Contact />} />
+						<Route exact path="/rates" element={<Rates />} />
 						<Route exact path="/faq" element={<Faq />} />
 						<Route exact path="/blog" element={<Blog />} />
 						<Route exact path="/blog/blog-detail" element={<BlogDetail />} />

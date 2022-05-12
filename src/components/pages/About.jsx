@@ -1,9 +1,9 @@
 import React from "react";
-import Cover from "../common/Cover";
+// import Cover from "../common/Cover";
 import Since from "./section/Since";
-import Affiliate from "./section/Affiliate";
-import Strip from "./section/Strip";
-import Assets from "./section/Assets";
+// import Affiliate from "./section/Affiliate";
+// import Strip from "./section/Strip";
+// import Assets from "./section/Assets";
 
 function About() {
 	const about = {
@@ -70,11 +70,11 @@ function About() {
 	};
 	return (
 		<>
-			<Cover data={about.cover} btn={true} />
+			{/* <Cover data={about.cover} btn={true} /> */}
 			<Since data={about.since} />
-			<Affiliate data={about.affiliate} />
-			<Assets data={about.assets} />
-			<Strip data={about.strip} />
+			{/* <Affiliate data={about.affiliate} /> */}
+			{/* <Assets data={about.assets} /> */}
+			{/* <Strip data={about.strip} /> */}
 		</>
 	);
 }

@@ -34,7 +34,7 @@ function Sidebar(props) {
 						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/privacy-policy" className={({ isActive }) => (isActive ? "active" : "")} onClick={isToggle}>
+						<NavLink to="/services" className={({ isActive }) => (isActive ? "active" : "")} onClick={isToggle}>
 							Our Services
 						</NavLink>
 					</li>

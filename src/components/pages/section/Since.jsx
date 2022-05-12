@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Since({ data }) {
 	return (
@@ -13,11 +13,11 @@ function Since({ data }) {
 									<em>{data.heading}</em> <strong>{data.heading_ex}</strong>
 								</h3>
 								<p>{data.para}</p>
-								<div className="btn_blk">
+								{/* <div className="btn_blk">
 									<Link to={data.btn_link} className="site_btn shade long round">
 										{data.btn}
 									</Link>
-								</div>
+								</div> */}
 							</div>
 						</div>
 						{data.image.map((val) => {

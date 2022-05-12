@@ -11,7 +11,7 @@ function Banner({ data }) {
 				<div className="contain">
 					<div className="flex_blk">
 						<div className="content text-center">
-							<p>{para}</p>
+							{/* <p>{para}</p> */}
 							<Heading className="fancy" size={1} text={heading} />
 							{/* <div className="btn_blk">
 								<Link to={btn_link_01} className="site_btn lg shade block_sm">
