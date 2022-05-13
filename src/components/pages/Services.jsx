@@ -18,7 +18,7 @@ function Services() {
 					alt: "Service Photo",
 					title: "Talk to an Expert",
 					link: "/service-detail",
-					text: "Browse this Expert Africa website, then call us. We’ll match you with the Specialist in our team who is best suited to help you. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto officia, dolor nulla qui veniam id odio, omnis repudiandae quaerat culpa tenetur eaque dignissimos veritatis eveniet quas. Sapiente velit magni illo.",
+					text: "Browse this Expert Africa website, then call us. We’ll match you with the Specialist in our team who is best suited to help you.",
 					btn: "View More",
 				},
 				{
@@ -27,7 +27,7 @@ function Services() {
 					alt: "Service Photo",
 					title: "Set up your itinerary",
 					link: "/service-detail",
-					text: "Based on our experience and your ideas, your specialist will create a detailed, costed itinerary. We’ll refine it together, until we have a trip that you’re perfectly happy with. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto officia, dolor nulla qui veniam id odio, omnis repudiandae quaerat culpa tenetur eaque dignissimos veritatis eveniet quas. Sapiente velit magni illo.",
+					text: "Based on our experience and your ideas, your specialist will create a detailed, costed itinerary. We’ll refine it together, until we have a trip that you’re perfectly happy with.",
 					btn: "View More",
 				},
 				{
@@ -36,7 +36,7 @@ function Services() {
 					alt: "Service Photo",
 					title: "Prepare for your trip",
 					link: "/service-detail",
-					text: "The same Specialist will make the seamless arrangements for your trip, send you detailed travel documents, and be available to answer any questions before you depart. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto officia, dolor nulla qui veniam id odio, omnis repudiandae quaerat culpa tenetur eaque dignissimos veritatis eveniet quas. Sapiente velit magni illo.",
+					text: "The same Specialist will make the seamless arrangements for your trip, send you detailed travel documents, and be available to answer any questions before you depart.",
 					btn: "View More",
 				},
 				{
@@ -45,7 +45,7 @@ function Services() {
 					alt: "Service Photo",
 					title: "Travel with peace of mind",
 					link: "/service-detail",
-					text: "After you set off, you’ll be cared for by our partners in Africa, most of whom have worked with Expert Africa for decades. And if you ever need us urgently, we’re available 24/7. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto officia, dolor nulla qui veniam id odio, omnis repudiandae quaerat culpa tenetur eaque dignissimos veritatis eveniet quas. Sapiente velit magni illo.",
+					text: "After you set off, you’ll be cared for by our partners in Africa, most of whom have worked with Expert Africa for decades. And if you ever need us urgently, we’re available 24/7.",
 					btn: "View More",
 				},
 				{
@@ -54,7 +54,7 @@ function Services() {
 					alt: "Service Photo",
 					title: "Set up your itinerary",
 					link: "/service-detail",
-					text: "Based on our experience and your ideas, your specialist will create a detailed, costed itinerary. We’ll refine it together, until we have a trip that you’re perfectly happy with. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto officia, dolor nulla qui veniam id odio, omnis repudiandae quaerat culpa tenetur eaque dignissimos veritatis eveniet quas. Sapiente velit magni illo.",
+					text: "Based on our experience and your ideas, your specialist will create a detailed, costed itinerary. We’ll refine it together, until we have a trip that you’re perfectly happy with.",
 					btn: "View More",
 				},
 			],

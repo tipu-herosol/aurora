@@ -14,9 +14,9 @@ function OwlWorks(props) {
 								<img src={val.src} alt={val.alt} />
 							</div>
 							<div className="txt">
-								<h5>
+								<h4 className="fancy">
 									<Link to={val.link}>{val.title}</Link>
-								</h5>
+								</h4>
 								<p>{val.text}</p>
 								<div className="btn_blk">
 									<Link to={val.link} className="site_btn text">

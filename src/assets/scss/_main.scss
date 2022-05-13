@@ -953,9 +953,13 @@ footer {
 	}
 	#owl-works {
 		.owl-stage {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
 		}
 		.owl-item {
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
 			> * {
 				width: 100%;
